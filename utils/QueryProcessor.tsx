@@ -1,3 +1,5 @@
+import { maxHeaderSize } from "http";
+
 export default function QueryProcessor(query: string): string {
   if (query.toLowerCase().includes("shakespeare")) {
     return (
@@ -10,7 +12,13 @@ export default function QueryProcessor(query: string): string {
   if (query.toLowerCase().includes("name")) {
     return "ograham";
   }
-
+  if (query.toLowerCase().includes("largest")) {
+    //return the largest integer listed in the query
+    const numbers = query.match(/\d+/g);
+    if (numbers && numbers.length > 0) {
+      return numbers.map(Number).sort((a, b) => b - a)[0].toString();
+    }
+  }
   if (
     query.toLowerCase().includes("andrew") &&
     query.toLowerCase().includes("id")
