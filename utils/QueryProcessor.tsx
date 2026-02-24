@@ -19,6 +19,13 @@ export default function QueryProcessor(query: string): string {
       return numbers.map(Number).sort((a, b) => b - a)[0].toString();
     }
   }
+  if (query.toLowerCase().includes("plus")) {
+    //return the sum of the two numbers in the query
+    const numbers = query.match(/\d+/g);
+    if (numbers && numbers.length >= 2) {
+      return (Number(numbers[0]) + Number(numbers[1])).toString();
+    }
+  }
   if (
     query.toLowerCase().includes("andrew") &&
     query.toLowerCase().includes("id")
