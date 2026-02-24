@@ -25,7 +25,7 @@ export default function QueryProcessor(query: string): string {
     if (numbers && numbers.length >= 2) {
       return (Number(numbers[0]) + Number(numbers[1])).toString();
     }
-  }
+  }//test
   if (
     query.toLowerCase().includes("andrew") &&
     query.toLowerCase().includes("id")
